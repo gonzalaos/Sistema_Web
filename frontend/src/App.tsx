@@ -1,39 +1,18 @@
-import {useEffect, useState} from 'react';
-
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-}
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AdminLayout } from './components/layout/AdminLayout';
+import {IngredientsPage} from "./pages/admin/IngredientsPage.tsx";
 
 export default function App() {
-  const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    fetch('/api/products')
-    .then(res => res.json())
-    .then(data => {
-      setProducts(data);
-    })
-        .catch(err => console.error("Error conentando al backend: ", err));
-  }, []);
-
-  return (
-      <div style={{padding:'2rem', fontSize: 'sans-serif'}}>
-        <h1>Mi Sistema Web</h1>
-        <h2>Lista de productos</h2>
-
-        {products.length === 0 ? (
-            <p>No hay productos todavia.</p>
-        ) : (
-            <ul>
-              {products.map((product: Product) => (
-                  <li key={product.id}>
-                    <strong>{product.name}</strong> - {product.price}
-                  </li>
-              ))}
-            </ul>
-        )}
-      </div>
-  )
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/admin" element={<AdminLayout />}>
+                    <Route index element={<Navigate to="ingredients" replace />} />
+                    <Route path="ingredients" element={<div><IngredientsPage/></div>} />
+                    <Route path="products" element={<div>Pagina de productos en construccion</div>} />
+                    <Route path="combos" element={<div>Pagina de combos en construccion</div>} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
