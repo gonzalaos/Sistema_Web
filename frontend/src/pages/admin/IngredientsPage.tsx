@@ -26,6 +26,7 @@ export const IngredientsPage = () => {
                     <tr>
                         <th>Nombre</th>
                         <th>Stock</th>
+                        <th>Stock Min.</th>
                         <th>Unidad</th>
                         <th className={styles.alignRight}>Acciones</th>
                     </tr>
@@ -34,6 +35,7 @@ export const IngredientsPage = () => {
                     <tr>
                         <td className={styles.fontMedium}>Tomate</td>
                         <td className={styles.fontMono}>15</td>
+                        <td className={styles.fontMono}>5</td>
                         <td className={styles.textSecondary}>kg</td>
                         <td className={styles.actionsCell}>
                             <button className={styles.editBtn}>Editar</button>
@@ -43,6 +45,7 @@ export const IngredientsPage = () => {
                     <tr>
                         <td className={styles.fontMedium}>Harina</td>
                         <td className={styles.fontMono}>50</td>
+                        <td className={styles.fontMono}>10</td>
                         <td className={styles.textSecondary}>kg</td>
                         <td className={styles.actionsCell}>
                             <button className={styles.editBtn}>Editar</button>
@@ -52,6 +55,7 @@ export const IngredientsPage = () => {
                     <tr>
                         <td className={styles.fontMedium}>Leche</td>
                         <td className={styles.fontMono}>20</td>
+                        <td className={styles.fontMono}>5</td>
                         <td className={styles.textSecondary}>litros</td>
                         <td className={styles.actionsCell}>
                             <button className={styles.editBtn}>Editar</button>

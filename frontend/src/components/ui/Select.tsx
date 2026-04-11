@@ -11,9 +11,10 @@ interface SelectProps {
     value: string;
     onChange: (value: string) => void;
     placeholder?: string;
+    hasError?: boolean;
 }
 
-export const Select = ({ options, value, onChange, placeholder = "Seleccionar..." }: SelectProps) => {
+export const Select = ({ options, value, onChange, placeholder = "Seleccionar...", hasError = false }: SelectProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -35,7 +36,7 @@ export const Select = ({ options, value, onChange, placeholder = "Seleccionar...
     return (
         <div className={styles.container} ref={containerRef}>
             <div
-                className={`${styles.trigger} ${isOpen ? styles.triggerActive : ''}`}
+                className={`${styles.trigger} ${isOpen ? styles.triggerActive : ''} ${hasError && !isOpen ? styles.triggerError: ''}`}
                 onClick={() => setIsOpen(!isOpen)}
             >
         <span className={selectedOption ? styles.textSelected : styles.textPlaceholder}>

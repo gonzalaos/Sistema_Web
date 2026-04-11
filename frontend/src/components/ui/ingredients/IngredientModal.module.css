@@ -122,3 +122,15 @@
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+.errorText {
+    color: #9f403d; /* Rojo error */
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.inputError {
+    border-color: #9f403d;
+}
